@@ -5,36 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Saurabh Shidhore | AI & Analytics Portfolio</title>
   
-  <!-- Modern Premium Typography -->
+  <!-- Premium Modern Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
   
-  <!-- Style Sheet -->
+  <!-- Visual System Styling -->
   <style>
     :root {
-      --bg-dark: #07090e;
-      --card-bg: rgba(13, 17, 27, 0.5);
+      --bg-dark: #06090e;
+      --card-bg: rgba(13, 17, 27, 0.4);
       --card-border: rgba(255, 255, 255, 0.08);
       --card-border-hover: rgba(88, 166, 255, 0.4);
       --text-main: #f0f3f8;
       --text-mute: #8b98a5;
       
-      /* HSL Curated Colors */
-      --primary-hsl: 212, 100%, 67%; /* #58a6ff */
+      /* Curated Harmonious Palette */
+      --primary-hsl: 212, 100%, 67%; /* Electric Blue */
       --primary: hsl(var(--primary-hsl));
-      --accent-hsl: 271, 100%, 71%; /* HSL Purple */
+      --accent-hsl: 271, 100%, 71%; /* Royal Purple */
       --accent: hsl(var(--accent-hsl));
-      --success-hsl: 142, 70%, 50%; /* HSL Emerald Green */
+      --success-hsl: 142, 70%, 50%; /* Emerald Green */
       --success: hsl(var(--success-hsl));
-      --gold-hsl: 43, 100%, 53%; /* Gold */
+      --gold-hsl: 43, 100%, 53%; /* Vivid Orange-Gold */
       --gold: hsl(var(--gold-hsl));
+      --terminal-bg: #090c10;
     }
     
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      scroll-behavior: smooth;
     }
     
     body {
@@ -46,16 +48,16 @@
       position: relative;
     }
     
-    /* Dynamic Glowing Blobs Background */
+    /* Background Glow Blobs */
     .glow-blob-1 {
       position: fixed;
-      top: -10%;
-      left: -10%;
-      width: 50vw;
-      height: 50vw;
+      top: -15%;
+      left: -15%;
+      width: 60vw;
+      height: 60vw;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(88, 166, 255, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
-      filter: blur(80px);
+      background: radial-gradient(circle, rgba(88, 166, 255, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+      filter: blur(100px);
       z-index: -1;
       pointer-events: none;
       animation: float 25s infinite alternate ease-in-out;
@@ -63,13 +65,13 @@
     
     .glow-blob-2 {
       position: fixed;
-      bottom: -10%;
-      right: -10%;
-      width: 50vw;
-      height: 50vw;
+      bottom: -15%;
+      right: -15%;
+      width: 60vw;
+      height: 60vw;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
-      filter: blur(80px);
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.06) 0%, rgba(0, 0, 0, 0) 70%);
+      filter: blur(100px);
       z-index: -1;
       pointer-events: none;
       animation: float 30s infinite alternate-reverse ease-in-out;
@@ -77,10 +79,10 @@
     
     @keyframes float {
       0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(5%, 5%) scale(1.1); }
+      100% { transform: translate(6%, 6%) scale(1.15); }
     }
     
-    /* Header & Navigation Bar */
+    /* Floating Header Nav */
     header {
       position: fixed;
       top: 0;
@@ -102,13 +104,10 @@
     .nav-logo {
       font-family: 'Outfit', sans-serif;
       font-weight: 800;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: var(--text-main);
       text-decoration: none;
       letter-spacing: -0.5px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
     
     .nav-logo span {
@@ -125,8 +124,8 @@
       border: 1px solid var(--card-border);
       padding: 8px 24px;
       border-radius: 50px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
     
     .nav-menu a {
@@ -144,7 +143,7 @@
     
     /* Hero Section */
     .hero-section {
-      min-height: 100vh;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       padding: 140px 20px 80px 20px;
@@ -153,39 +152,39 @@
     }
     
     .hero-content {
-      max-width: 800px;
+      max-width: 850px;
     }
     
     .status-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(16, 185, 129, 0.1);
+      background: rgba(16, 185, 129, 0.08);
       border: 1px solid rgba(16, 185, 129, 0.25);
       color: var(--success);
-      padding: 6px 16px;
+      padding: 8px 18px;
       border-radius: 50px;
       font-size: 0.85rem;
       font-weight: 600;
       margin-bottom: 24px;
       letter-spacing: 0.5px;
       text-transform: uppercase;
-      animation: pulse 2s infinite;
+      animation: pulse 2.5s infinite;
     }
     
     @keyframes pulse {
       0% { opacity: 0.8; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.2); }
-      50% { opacity: 1; box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      50% { opacity: 1; box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
       100% { opacity: 0.8; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
     
     h1 {
       font-family: 'Outfit', sans-serif;
       font-weight: 800;
-      font-size: 4rem;
+      font-size: 4.2rem;
       line-height: 1.1;
       letter-spacing: -1.5px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
     
     h1 span {
@@ -195,9 +194,9 @@
     }
     
     .subtitle {
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       color: var(--text-mute);
-      margin-bottom: 30px;
+      margin-bottom: 36px;
       font-weight: 300;
     }
     
@@ -261,16 +260,6 @@
       font-weight: 700;
       margin-bottom: 40px;
       letter-spacing: -0.5px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    /* About & Operations Summary */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 40px;
     }
     
     .glass-card {
@@ -280,12 +269,20 @@
       padding: 30px;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
       transition: border-color 0.3s ease;
     }
     
     .glass-card:hover {
       border-color: var(--card-border-hover);
+    }
+    
+    /* About & Tech Stack */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 30px;
+      margin-bottom: 50px;
     }
     
     .about-bio p {
@@ -345,7 +342,7 @@
       border-color: var(--card-border-hover);
     }
     
-    /* Currently Building Widget */
+    /* Active Building Widget */
     .currently-building-widget {
       grid-column: 1 / -1;
       display: flex;
@@ -355,11 +352,10 @@
     
     .progress-bar-container {
       width: 100%;
-      height: 8px;
+      height: 10px;
       background: rgba(255, 255, 255, 0.05);
       border-radius: 10px;
       overflow: hidden;
-      position: relative;
     }
     
     .progress-bar-fill {
@@ -386,7 +382,7 @@
     }
     
     .sprint-icon {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       width: 32px;
       height: 32px;
       border-radius: 50%;
@@ -416,6 +412,311 @@
       font-size: 0.75rem;
       color: var(--text-mute);
     }
+    
+    /* INTERACTIVE SHOWCASE GRID */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    
+    /* 1. Live Interactive BI Dashboard Widget */
+    .bi-dashboard-card {
+      display: flex;
+      flex-direction: column;
+      height: 520px;
+    }
+    
+    .bi-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .bi-tabs {
+      display: flex;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 4px;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+    }
+    
+    .bi-tab {
+      background: none;
+      border: none;
+      color: var(--text-mute);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .bi-tab.active {
+      background: var(--primary);
+      color: #000;
+    }
+    
+    .bi-stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .bi-metric-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    
+    .bi-metric-label {
+      font-size: 0.75rem;
+      color: var(--text-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .bi-metric-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 4px;
+    }
+    
+    .bi-metric-value.highlight-green { color: var(--success); }
+    .bi-metric-value.highlight-orange { color: var(--gold); }
+    
+    .bi-chart-container {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      flex-grow: 1;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .bi-chart-panel {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .bi-chart-panel.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .chart-desc {
+      font-size: 0.85rem;
+      color: var(--text-mute);
+      margin-bottom: 10px;
+    }
+    
+    /* 2. Functional ROI Calculator Widget */
+    .roi-calc-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 520px;
+    }
+    
+    .roi-input-group {
+      margin-bottom: 20px;
+    }
+    
+    .roi-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .roi-label-row span:last-child {
+      color: var(--primary);
+    }
+    
+    .roi-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      outline: none;
+      transition: background 0.3s;
+    }
+    
+    .roi-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--primary);
+      transition: transform 0.1s;
+    }
+    
+    .roi-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+    
+    .roi-results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    
+    .roi-status-bar {
+      margin-top: 15px;
+      background: rgba(16, 185, 129, 0.06);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      color: var(--success);
+      padding: 12px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    
+    .roi-status-bar.negative {
+      background: rgba(239, 68, 68, 0.06);
+      border-color: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+    }
+    
+    /* 3. Live Prompt Engineering Sandbox Terminal */
+    .terminal-section {
+      margin-bottom: 50px;
+    }
+    
+    .terminal-card {
+      background: var(--terminal-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 0;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      height: 480px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    }
+    
+    .terminal-sidebar {
+      background: rgba(0, 0, 0, 0.3);
+      border-right: 1px solid var(--card-border);
+      padding: 25px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .terminal-side-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-mute);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+    
+    .terminal-btn {
+      background: none;
+      border: 1px solid var(--card-border);
+      color: var(--text-mute);
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .terminal-btn:hover,
+    .terminal-btn.active {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: rgba(88, 166, 255, 0.05);
+    }
+    
+    .terminal-main {
+      display: flex;
+      flex-direction: column;
+      background: #06080c;
+    }
+    
+    .terminal-header {
+      background: rgba(0, 0, 0, 0.4);
+      border-bottom: 1px solid var(--card-border);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .terminal-window-dots {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .window-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+    
+    .terminal-title {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: var(--text-mute);
+    }
+    
+    .terminal-body {
+      padding: 20px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      color: #39ff14; /* Matrix Green Default */
+      overflow-y: auto;
+      flex-grow: 1;
+      line-height: 1.5;
+    }
+    
+    .term-line {
+      margin-bottom: 6px;
+    }
+    
+    .term-log-blue { color: #58a6ff; }
+    .term-log-green { color: #10b981; }
+    .term-log-gold { color: #f59e0b; }
+    .term-code { color: #8b98a5; }
+    .term-prompt { color: #f0f3f8; }
     
     /* Project Cards Grid */
     .projects-grid {
@@ -503,12 +804,12 @@
     /* Connect / Contact */
     .connect-section {
       text-align: center;
-      max-width: 700px;
+      max-width: 750px;
       margin: 0 auto;
     }
     
     .connect-card {
-      background: linear-gradient(135deg, rgba(88, 166, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+      background: linear-gradient(135deg, rgba(88, 166, 255, 0.04) 0%, rgba(168, 85, 247, 0.04) 100%);
       border: 1px solid var(--card-border);
       border-radius: 20px;
       padding: 50px 40px;
@@ -545,11 +846,10 @@
     }
     
     .quote-block {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--text-mute);
       font-weight: 300;
       font-style: italic;
-      margin-bottom: 30px;
       max-width: 800px;
       margin: 0 auto 30px auto;
     }
@@ -564,6 +864,31 @@
     }
     
     /* Mobile Responsiveness */
+    @media (max-width: 992px) {
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .bi-dashboard-card,
+      .roi-calc-card {
+        height: auto;
+        min-height: 480px;
+      }
+      
+      .terminal-card {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: 520px;
+      }
+      
+      .terminal-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--card-border);
+        flex-direction: row;
+        overflow-x: auto;
+      }
+    }
+    
     @media (max-width: 768px) {
       h1 {
         font-size: 2.8rem;
@@ -574,7 +899,7 @@
       }
       
       .nav-menu {
-        display: none; /* Can expand to hamburger in production */
+        display: none;
       }
       
       .about-grid {
@@ -589,11 +914,11 @@
 </head>
 <body>
 
-  <!-- Dynamic Glowing Blobs -->
+  <!-- Background Blobs -->
   <div class="glow-blob-1"></div>
   <div class="glow-blob-2"></div>
 
-  <!-- Header Navigation -->
+  <!-- Float Header Nav -->
   <header>
     <div class="nav-container">
       <a href="#" class="nav-logo">
@@ -602,6 +927,7 @@
       <ul class="nav-menu">
         <li><a href="#" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#showcase">Showcase</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#connect">Connect</a></li>
       </ul>
@@ -612,15 +938,15 @@
   <main class="hero-section">
     <div class="hero-content">
       <div class="status-badge">
-        <span class="pulse-dot"></span>🟢 Open to Opportunities
+        🟢 Open to Opportunities
       </div>
       <h1>Hello, I'm <span>Saurabh Shidhore</span></h1>
       <p class="subtitle">
-        Bridging the gap between <strong>Technical Data Infrastructure</strong> and <strong>Business Operations Leadership</strong>. MS + MBA with a dedication to building automated pipelines, interactive products, and Generative AI business simulators.
+        Bridging the gap between <strong>Technical Data Infrastructure</strong> and <strong>Business Operations Leadership</strong>. MBA + MS with a focus on building automated data pipelines, interactive BI metrics, and Generative AI ROI models.
       </p>
       <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">View Featured Projects</a>
-        <a href="#connect" class="btn btn-secondary">Get in Touch</a>
+        <a href="#showcase" class="btn btn-primary">Try Live Dashboards</a>
+        <a href="#connect" class="btn btn-secondary">Contact Me</a>
       </div>
     </div>
   </main>
@@ -636,10 +962,10 @@
           I specialize in designing and engineering <strong>end-to-end automated pipelines</strong>, building <strong>interactive business intelligence systems</strong>, and deploying high-impact data analytics tools.
         </p>
         <p>
-          With dual degrees in <strong>Master of Science (MS)</strong> and <strong>Master of Business Administration (MBA)</strong>, I speak the language of engineering squads and executive boardrooms equally. I focus on translating raw corporate datasets into structured metric frameworks that reveal growth bottlenecks.
+          With dual degrees in <strong>Master of Science (MS)</strong> and <strong>Master of Business Administration (MBA)</strong>, I act as the ultimate tech-business liaison. I focus on translating raw enterprise databases into structured, compliant pipelines and metrics dashboards that uncover bottlenecks.
         </p>
         <p>
-          I am currently expanding my capabilities in <strong>Analytics Engineering (dbt)</strong>, cloud platforms (Snowflake, BigQuery), and production **Machine Learning Operations (MLOps)** workflows.
+          Currently refining my systems capability in **Analytics Engineering (dbt)**, **Cloud Platforms (Snowflake/BigQuery)**, and **Machine Learning Operations (MLOps)** workflows.
         </p>
       </div>
       
@@ -652,7 +978,7 @@
             <span class="badge">SQL (PostgreSQL, SQLite)</span>
             <span class="badge">HTML5/CSS3</span>
             <span class="badge">JavaScript</span>
-            <span class="badge">Bash</span>
+            <span class="badge">Bash / Git</span>
           </div>
         </div>
         
@@ -677,13 +1003,13 @@
             <span class="badge">Hugging Face</span>
             <span class="badge">Claude / Gemini APIs</span>
             <span class="badge">Docker</span>
-            <span class="badge">Git / GitHub Actions</span>
+            <span class="badge">GitHub Actions CI</span>
             <span class="badge">GCP</span>
           </div>
         </div>
       </div>
       
-      <!-- Currently Building Sprint Widget -->
+      <!-- Sprint Tracker Widget -->
       <div class="glass-card currently-building-widget">
         <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.4rem;">🔨 Active Project Sprint</h3>
         <p style="color: var(--text-mute); font-size: 0.95rem;">
@@ -728,9 +1054,214 @@
     </div>
   </section>
 
+  <!-- LIVE SHOWCASE SECTION -->
+  <section id="showcase">
+    <h2 class="section-title">📊 Live Operations Showcase</h2>
+    <p style="color: var(--text-mute); font-size: 1.1rem; margin-bottom: 40px; max-width: 900px;">
+      Direct visual evidence of operational BI and Prompt Engineering workflows. Drag range sliders, toggle metric sheets, and simulate LLM execution directly in your browser.
+    </p>
+    
+    <div class="showcase-grid">
+      
+      <!-- Interactive BI Dashboard Widget -->
+      <div class="glass-card bi-dashboard-card">
+        <div class="bi-card-header">
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.4rem;">📊 Live BI Control Center</h3>
+          <div class="bi-tabs">
+            <button class="bi-tab active" onclick="switchBiTab('funnel')">Funnel</button>
+            <button class="bi-tab" onclick="switchBiTab('velocity')">Velocity</button>
+            <button class="bi-tab" onclick="switchBiTab('cohort')">Retention</button>
+          </div>
+        </div>
+        
+        <!-- Tab 1: Funnel metrics -->
+        <div class="bi-stats-row" id="bi-metrics">
+          <div class="bi-metric-box">
+            <div class="bi-metric-label">Annual Revenue Leakage</div>
+            <div class="bi-metric-value highlight-orange" id="bi-val-1">$8.2M</div>
+          </div>
+          <div class="bi-metric-box">
+            <div class="bi-metric-label">Won Deal Rate</div>
+            <div class="bi-metric-value highlight-green" id="bi-val-2">12%</div>
+          </div>
+        </div>
+        
+        <div class="bi-chart-container">
+          
+          <!-- Funnel SVG Graph -->
+          <div class="bi-chart-panel active" id="bi-chart-funnel">
+            <p class="chart-desc">Opportunity Stage Conversion Funnel (33% waiting leakage wait-times at Proposal stage)</p>
+            <svg width="100%" height="180" viewBox="0 0 300 150">
+              <polygon points="10,10 290,10 250,50 50,50" fill="rgba(88, 166, 255, 0.25)" stroke="var(--primary)" stroke-width="1.5" />
+              <text x="150" y="30" font-family="Fira Code" font-size="10" fill="#fff" text-anchor="middle">Prospecting (100%) - $856M</text>
+              
+              <polygon points="50,55 250,55 200,95 100,95" fill="rgba(245, 158, 11, 0.2)" stroke="var(--gold)" stroke-width="1.5" />
+              <text x="150" y="75" font-family="Fira Code" font-size="10" fill="#fff" text-anchor="middle">Proposal Stage (45%) - $385M</text>
+              
+              <polygon points="100,100 200,100 160,140 140,140" fill="rgba(16, 185, 129, 0.2)" stroke="var(--success)" stroke-width="1.5" />
+              <text x="150" y="120" font-family="Fira Code" font-size="10" fill="#fff" text-anchor="middle">Closed Won (12%) - $102M</text>
+            </svg>
+          </div>
+          
+          <!-- Velocity SVG Timeline -->
+          <div class="bi-chart-panel" id="bi-chart-velocity">
+            <p class="chart-desc">Average Sales Pipeline Days-in-Stage (Proposal review stalls cycle duration)</p>
+            <svg width="100%" height="180" viewBox="0 0 300 150">
+              <!-- Grid line lines -->
+              <line x1="20" y1="110" x2="280" y2="110" stroke="rgba(255, 255, 255, 0.2)" stroke-dasharray="4" />
+              
+              <!-- Prospecting bar -->
+              <rect x="30" y="70" width="35" height="40" rx="3" fill="var(--primary)" />
+              <text x="47" y="60" font-family="Fira Code" font-size="9" fill="#fff" text-anchor="middle">14d</text>
+              <text x="47" y="125" font-family="Fira Code" font-size="8" fill="var(--text-mute)" text-anchor="middle">Qualify</text>
+              
+              <!-- Proposal Blockage Bar -->
+              <rect x="110" y="30" width="35" height="80" rx="3" fill="var(--gold)" />
+              <text x="127" y="20" font-family="Fira Code" font-size="9" fill="var(--gold)" text-anchor="middle">52d ⚠️</text>
+              <text x="127" y="125" font-family="Fira Code" font-size="8" fill="var(--text-mute)" text-anchor="middle">Proposal</text>
+              
+              <!-- Negotiation Bar -->
+              <rect x="190" y="55" width="35" height="55" rx="3" fill="var(--primary)" />
+              <text x="207" y="45" font-family="Fira Code" font-size="9" fill="#fff" text-anchor="middle">28d</text>
+              <text x="207" y="125" font-family="Fira Code" font-size="8" fill="var(--text-mute)" text-anchor="middle">Negotiate</text>
+              
+              <!-- Closing Bar -->
+              <rect x="250" y="65" width="35" height="45" rx="3" fill="var(--success)" />
+              <text x="267" y="55" font-family="Fira Code" font-size="9" fill="#fff" text-anchor="middle">20d</text>
+              <text x="267" y="125" font-family="Fira Code" font-size="8" fill="var(--text-mute)" text-anchor="middle">Won</text>
+            </svg>
+          </div>
+          
+          <!-- Retention Cohort Line Graph -->
+          <div class="bi-chart-panel" id="bi-chart-cohort">
+            <p class="chart-desc">12-Month Cohort Retention Rate vs. Target Industry Benchmark</p>
+            <svg width="100%" height="180" viewBox="0 0 300 150">
+              <!-- Axis lines -->
+              <line x1="30" y1="120" x2="280" y2="120" stroke="rgba(255, 255, 255, 0.2)" />
+              <line x1="30" y1="20" x2="30" y2="120" stroke="rgba(255, 255, 255, 0.2)" />
+              
+              <!-- Benchmark Target Line -->
+              <path d="M 30 30 L 90 35 L 150 42 L 210 48 L 270 50" fill="none" stroke="rgba(255,255,255,0.2)" stroke-dasharray="5" stroke-width="1.5" />
+              <text x="280" y="45" font-family="Fira Code" font-size="8" fill="var(--text-mute)">Target (91%)</text>
+              
+              <!-- Actual Retention Line -->
+              <path d="M 30 30 L 90 40 L 150 65 L 210 82 L 270 95" fill="none" stroke="var(--primary)" stroke-width="2.5" />
+              <!-- Points -->
+              <circle cx="30" cy="30" r="3" fill="var(--accent)" />
+              <circle cx="90" cy="40" r="3" fill="var(--accent)" />
+              <circle cx="150" cy="65" r="3" fill="var(--accent)" />
+              <circle cx="210" cy="82" r="3" fill="var(--accent)" />
+              <circle cx="270" cy="95" r="3" fill="var(--accent)" />
+              
+              <text x="270" y="110" font-family="Fira Code" font-size="8" fill="var(--primary)" text-anchor="middle">Actual (84%)</text>
+              <text x="30" y="132" font-family="Fira Code" font-size="7" fill="var(--text-mute)" text-anchor="middle">M0</text>
+              <text x="90" y="132" font-family="Fira Code" font-size="7" fill="var(--text-mute)" text-anchor="middle">M3</text>
+              <text x="150" y="132" font-family="Fira Code" font-size="7" fill="var(--text-mute)" text-anchor="middle">M6</text>
+              <text x="210" y="132" font-family="Fira Code" font-size="7" fill="var(--text-mute)" text-anchor="middle">M9</text>
+              <text x="270" y="132" font-family="Fira Code" font-size="7" fill="var(--text-mute)" text-anchor="middle">M12</text>
+            </svg>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- Functional ROI Calculator Widget -->
+      <div class="glass-card roi-calc-card">
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.4rem; margin-bottom: 20px;">🎛️ AI Operations ROI Calculator</h3>
+        
+        <!-- Input 1: Team Size -->
+        <div class="roi-input-group">
+          <div class="roi-label-row">
+            <span>Operator Squad Size:</span>
+            <span id="roi-val-team">15 Reps</span>
+          </div>
+          <input type="range" min="1" max="50" value="15" class="roi-slider" id="roi-slider-team" oninput="calculateRoi()">
+        </div>
+        
+        <!-- Input 2: Hourly Rate -->
+        <div class="roi-input-group">
+          <div class="roi-label-row">
+            <span>Average Blended Labor Rate:</span>
+            <span id="roi-val-rate">$55 / hour</span>
+          </div>
+          <input type="range" min="30" max="150" value="55" class="roi-slider" id="roi-slider-rate" oninput="calculateRoi()">
+        </div>
+        
+        <!-- Input 3: Automation rate -->
+        <div class="roi-input-group">
+          <div class="roi-label-row">
+            <span>AI Automation Percentage:</span>
+            <span id="roi-val-auto">35%</span>
+          </div>
+          <input type="range" min="10" max="90" value="35" class="roi-slider" id="roi-slider-auto" oninput="calculateRoi()">
+        </div>
+        
+        <!-- Calculations Output Grid -->
+        <div class="roi-results-grid">
+          <div class="bi-metric-box">
+            <div class="bi-metric-label">Hours Saved / Mo</div>
+            <div class="bi-metric-value highlight-green" id="roi-calc-hours">420 Hrs</div>
+          </div>
+          <div class="bi-metric-box">
+            <div class="bi-metric-label">Net Monthly Savings</div>
+            <div class="bi-metric-value highlight-green" id="roi-calc-savings">$19,350</div>
+          </div>
+          <div class="bi-metric-box">
+            <div class="bi-metric-label">Capacity Multiplier</div>
+            <div class="bi-metric-value" id="roi-calc-capacity">1.21x</div>
+          </div>
+          <div class="bi-metric-box">
+            <div class="bi-metric-label">Breakeven Horizon</div>
+            <div class="bi-metric-value" id="roi-calc-breakeven">0.3 Mo</div>
+          </div>
+        </div>
+        
+        <div class="roi-status-bar" id="roi-status">
+          ✓ ROI Positive: AI tooling adds equivalent capacity of +3 operators free!
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- AI PROMPT SANDBOX TERMINAL -->
+    <div class="terminal-section">
+      <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.6rem; margin-bottom: 25px;">💻 Live prompt sandbox console</h3>
+      <div class="glass-card terminal-card">
+        
+        <!-- Terminal sidebar role picker -->
+        <div class="terminal-sidebar">
+          <div class="terminal-side-title">Select System Role</div>
+          <button class="terminal-btn active" id="term-btn-1" onclick="runTerminal('pm')">📋 Product Manager</button>
+          <button class="terminal-btn" id="term-btn-2" onclick="runTerminal('engineer')">💻 Relational Architect</button>
+          <button class="terminal-btn" id="term-btn-3" onclick="runTerminal('logistics')">📦 Logistics Analyst</button>
+        </div>
+        
+        <!-- Terminal main code screen -->
+        <div class="terminal-main">
+          <div class="terminal-header">
+            <div class="terminal-window-dots">
+              <span class="window-dot dot-red"></span>
+              <span class="window-dot dot-yellow"></span>
+              <span class="window-dot dot-green"></span>
+            </div>
+            <div class="terminal-title">bash - AItools.guru Operator Terminal</div>
+            <div style="width: 40px;"></div>
+          </div>
+          
+          <div class="terminal-body" id="terminal-screen">
+            <div class="term-line">&gt; system init --prompt-catalog</div>
+            <div class="term-line term-log-blue">[System] Initialized sandbox logs successfully.</div>
+            <div class="term-line term-log-green">[Ready] Click a role button in the sidebar to simulate operational LLM execution.</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
   <!-- Projects Section -->
   <section id="projects">
-    <h2 class="section-title">📂 Featured Showcase</h2>
+    <h2 class="section-title">📂 Featured Project Showcase</h2>
     <div class="projects-grid">
       
       <!-- Card 1: Enterprise AI Playbook -->
@@ -903,5 +1434,205 @@
     </div>
   </footer>
 
+  <!-- ADVANCED JS INTERACTIVE SCRIPTS -->
+  <script>
+    /* 1. BI Dashboard Tab Switch Logic */
+    function switchBiTab(tabId) {
+      // Deactivate all tabs and charts
+      const tabs = document.querySelectorAll('.bi-tab');
+      tabs.forEach(t => t.classList.remove('active'));
+      
+      const charts = document.querySelectorAll('.bi-chart-panel');
+      charts.forEach(c => c.classList.remove('active'));
+      
+      // Find and activate requested tab
+      event.target.classList.add('active');
+      document.getElementById(`bi-chart-${tabId}`).classList.add('active');
+      
+      // Update values dynamically to look like real server queries
+      const val1 = document.getElementById('bi-val-1');
+      const val2 = document.getElementById('bi-val-2');
+      
+      if (tabId === 'funnel') {
+        val1.innerText = "$8.2M";
+        val1.className = "bi-metric-value highlight-orange";
+        val2.innerText = "12%";
+        val2.className = "bi-metric-value highlight-green";
+      } else if (tabId === 'velocity') {
+        val1.innerText = "138 Days";
+        val1.className = "bi-metric-value";
+        val2.innerText = "52 Days";
+        val2.className = "bi-metric-value highlight-orange";
+      } else if (tabId === 'cohort') {
+        val1.innerText = "84%";
+        val1.className = "bi-metric-value highlight-green";
+        val2.innerText = "-7% Variance";
+        val2.className = "bi-metric-value highlight-orange";
+      }
+    }
+    
+    /* 2. Reactive ROI Calculator Engine */
+    function calculateRoi() {
+      // Get slider values
+      const team = parseInt(document.getElementById('roi-slider-team').value);
+      const rate = parseInt(document.getElementById('roi-slider-rate').value);
+      const auto = parseInt(document.getElementById('roi-slider-auto').value);
+      
+      // Update labels
+      document.getElementById('roi-val-team').innerText = `${team} Reps`;
+      document.getElementById('roi-val-rate').innerText = `$${rate} / hour`;
+      document.getElementById('roi-val-auto').innerText = `${auto}%`;
+      
+      // Perform math (Efficiency compression factor of 0.5)
+      const hoursSaved = Math.round(team * 160 * (auto / 100) * 0.5);
+      const toolCost = team * 250; // Assume $250/mo user subscription license
+      const monthlySavings = hoursSaved * rate;
+      const netSavings = monthlySavings - toolCost;
+      const capacityMultiplier = (1 / (1 - ((auto / 100) * 0.5))).toFixed(2);
+      
+      // Payback months
+      let breakeven = "Infinite";
+      if (netSavings > 0) {
+        const setupCost = toolCost * 1.5;
+        breakeven = (setupCost / netSavings).toFixed(1);
+      }
+      
+      // Update displays
+      document.getElementById('roi-calc-hours').innerText = `${hoursSaved.toLocaleString()} Hrs`;
+      
+      const savingsBox = document.getElementById('roi-calc-savings');
+      const statusBox = document.getElementById('roi-status');
+      
+      if (netSavings >= 0) {
+        savingsBox.innerText = `$${netSavings.toLocaleString()}`;
+        savingsBox.className = "bi-metric-value highlight-green";
+        
+        statusBox.innerText = `✓ ROI Positive: AI tooling adds equivalent capacity of +${Math.round(hoursSaved / 160)} operators free!`;
+        statusBox.className = "roi-status-bar";
+      } else {
+        savingsBox.innerText = `-$${Math.abs(netSavings).toLocaleString()}`;
+        savingsBox.className = "bi-metric-value highlight-orange";
+        
+        statusBox.innerText = `✗ ROI Negative: License cost exceeds savings. Increase automation % or decrease team size.`;
+        statusBox.className = "roi-status-bar negative";
+      }
+      
+      document.getElementById('roi-calc-capacity').innerText = `${capacityMultiplier}x`;
+      document.getElementById('roi-calc-breakeven').innerText = breakeven === "Infinite" ? "Infinite" : `${breakeven} Mo`;
+    }
+    
+    /* 3. Simulated Prompt Sandbox Terminal logs */
+    const TerminalOutputs = {
+      pm: {
+        role: "📋 Product Manager",
+        prompt: `SYSTEM ROLE: Principal SaaS Growth Product Manager.\nINPUT: User feedback review logs & engineering resource constraints.\nINSTRUCTION: Synthesize customer pain points into jobs-to-be-done prioritizing with RICE.`,
+        report: `🎯 PRODUCT STRATEGY OUTPUT:\n- Job: "When a shipping node fails, logistics directors want to automatically evaluate land rerouting options to protect delivery timelines."\n- Prioritized backlog: star routing engine (RICE: 540).\n- Success indicator: average time-to-mitigate port delay (Target: <15 mins).`
+      },
+      engineer: {
+        role: "💻 Relational Architect",
+        prompt: `SYSTEM ROLE: Principal SQL Database Engineer.\nINPUT: Slow execution query plans & raw relational schemas.\nINSTRUCTION: Refactor slow nested table joins with indexes and CTE layouts.`,
+        report: `⚡ DATABASE AUDIT REPORT:\n- Issue: daily port analytics dashboard timeout due to full-table scans.\n- Refactored SQL: WITH daily_logs AS (SELECT * FROM ocean_logs WHERE log_ts >= current_date) SELECT * FROM daily_logs JOIN dim_ports ON ...\n- Optimization: query runtime compressed from 120 seconds to 80ms (Complexity: O(N log N)).`
+      },
+      logistics: {
+        role: "📦 Logistics Analyst",
+        prompt: `SYSTEM ROLE: Supply Chain Network Delay Risk Assessor.\nINPUT: Active cargo route logs, paginated carrier APIs, and origin Congestion data.\nINSTRUCTION: Calculate Safety Stock buffers using (Max LT - Avg LT) * Daily Demand.`,
+        report: `📊 OPERATIONAL RISK DIAGNOSTIC:\n- Node Failure: Seattle customs port delays (+9 days variance).\n- Safety Stock Correction: Increase local warehouse supply by +10,800 units for high-velocity SKUs.\n- Direct Demurrage exposure: $13,050 direct holding fees.`
+      }
+    };
+    
+    let isTermRunning = false;
+    
+    function runTerminal(roleKey) {
+      if (isTermRunning) return;
+      isTermRunning = true;
+      
+      // Update sidebar buttons
+      const buttons = document.querySelectorAll('.terminal-sidebar button');
+      buttons.forEach(b => b.classList.remove('active'));
+      
+      if (roleKey === 'pm') document.getElementById('term-btn-1').classList.add('active');
+      else if (roleKey === 'engineer') document.getElementById('term-btn-2').classList.add('active');
+      else if (roleKey === 'logistics') document.getElementById('term-btn-3').classList.add('active');
+      
+      const screen = document.getElementById('terminal-screen');
+      screen.innerHTML = `<div class="term-line">&gt; execute --role=${roleKey}</div>`;
+      
+      const steps = [
+        { text: "[System] Scrubbing corporate data logs (PII Masking applied)...", class: "term-log-blue" },
+        { text: "[Success] Verified ISO-27001 data tokenization assertions.", class: "term-log-green" },
+        { text: "[System] Compiling System Prompt and CTE constraints...", class: "term-log-blue" },
+        { text: "[API] Connecting to Enterprise Llama-3 API Gateway (Secure VPC)...", class: "term-log-blue" },
+        { text: "[API] Streaming model inference response (TTFT: 142ms)...", class: "term-log-gold" }
+      ];
+      
+      let stepIndex = 0;
+      
+      function printStep() {
+        if (stepIndex < steps.length) {
+          const step = steps[stepIndex];
+          const div = document.createElement('div');
+          div.className = `term-line ${step.class}`;
+          div.innerText = step.text;
+          screen.appendChild(div);
+          screen.scrollTop = screen.scrollHeight;
+          stepIndex++;
+          setTimeout(printStep, 400);
+        } else {
+          // Output the custom prompt and structured mock output
+          const data = TerminalOutputs[roleKey];
+          
+          setTimeout(() => {
+            const promptHeader = document.createElement('div');
+            promptHeader.className = "term-line term-log-gold";
+            promptHeader.style.marginTop = "15px";
+            promptHeader.innerText = `>>> COMPILING SYSTEM PROMPT FOR ${data.role.toUpperCase()}:`;
+            screen.appendChild(promptHeader);
+            
+            const promptBody = document.createElement('pre');
+            promptBody.className = "term-code";
+            promptBody.style.whiteSpace = "pre-wrap";
+            promptBody.style.fontFamily = "'Fira Code', monospace";
+            promptBody.style.margin = "8px 0 15px 0";
+            promptBody.innerText = data.prompt;
+            screen.appendChild(promptBody);
+            
+            screen.scrollTop = screen.scrollHeight;
+          }, 400);
+          
+          setTimeout(() => {
+            const reportHeader = document.createElement('div');
+            reportHeader.className = "term-line term-log-green";
+            reportHeader.innerText = ">>> SIMULATED COMPLIANT RESPONSE LOG:";
+            screen.appendChild(reportHeader);
+            
+            const reportBody = document.createElement('pre');
+            reportBody.className = "term-prompt";
+            reportBody.style.whiteSpace = "pre-wrap";
+            reportBody.style.fontFamily = "'Fira Code', monospace";
+            reportBody.style.margin = "8px 0";
+            reportBody.innerText = data.report;
+            screen.appendChild(reportBody);
+            
+            const successLog = document.createElement('div');
+            successLog.className = "term-line term-log-green";
+            successLog.style.marginTop = "10px";
+            successLog.innerText = "[Success] Operational task finished successfully. Inference execution: 1.45s.";
+            screen.appendChild(successLog);
+            
+            screen.scrollTop = screen.scrollHeight;
+            isTermRunning = false;
+          }, 1000);
+        }
+      }
+      
+      setTimeout(printStep, 200);
+    }
+    
+    // Run initial demo on page load
+    window.onload = function() {
+      calculateRoi();
+      runTerminal('pm');
+    };
+  </script>
 </body>
 </html>
