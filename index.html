@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saurabh Shidhore | AI & Analytics Portfolio</title>
+  
+  <!-- Modern Premium Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Style Sheet -->
+  <style>
+    :root {
+      --bg-dark: #07090e;
+      --card-bg: rgba(13, 17, 27, 0.5);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(88, 166, 255, 0.4);
+      --text-main: #f0f3f8;
+      --text-mute: #8b98a5;
+      
+      /* HSL Curated Colors */
+      --primary-hsl: 212, 100%, 67%; /* #58a6ff */
+      --primary: hsl(var(--primary-hsl));
+      --accent-hsl: 271, 100%, 71%; /* HSL Purple */
+      --accent: hsl(var(--accent-hsl));
+      --success-hsl: 142, 70%, 50%; /* HSL Emerald Green */
+      --success: hsl(var(--success-hsl));
+      --gold-hsl: 43, 100%, 53%; /* Gold */
+      --gold: hsl(var(--gold-hsl));
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+    
+    /* Dynamic Glowing Blobs Background */
+    .glow-blob-1 {
+      position: fixed;
+      top: -10%;
+      left: -10%;
+      width: 50vw;
+      height: 50vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(88, 166, 255, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+      filter: blur(80px);
+      z-index: -1;
+      pointer-events: none;
+      animation: float 25s infinite alternate ease-in-out;
+    }
+    
+    .glow-blob-2 {
+      position: fixed;
+      bottom: -10%;
+      right: -10%;
+      width: 50vw;
+      height: 50vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+      filter: blur(80px);
+      z-index: -1;
+      pointer-events: none;
+      animation: float 30s infinite alternate-reverse ease-in-out;
+    }
+    
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(5%, 5%) scale(1.1); }
+    }
+    
+    /* Header & Navigation Bar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 20px 0;
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-logo {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--text-main);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .nav-logo span {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .nav-menu {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      background: rgba(13, 17, 27, 0.6);
+      border: 1px solid var(--card-border);
+      padding: 8px 24px;
+      border-radius: 50px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    
+    .nav-menu a {
+      color: var(--text-mute);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--primary);
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 20px 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+    }
+    
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: var(--success);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 0.8; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.2); }
+      50% { opacity: 1; box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { opacity: 0.8; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+    
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 4rem;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+    
+    h1 span {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .subtitle {
+      font-size: 1.35rem;
+      color: var(--text-mute);
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+    
+    .subtitle strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: #000;
+      border: none;
+      box-shadow: 0 4px 14px rgba(88, 166, 255, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(88, 166, 255, 0.5);
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--text-mute);
+      transform: translateY(-2px);
+    }
+    
+    /* Section Layouts */
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    /* About & Operations Summary */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+    }
+    
+    .glass-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 30px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: border-color 0.3s ease;
+    }
+    
+    .glass-card:hover {
+      border-color: var(--card-border-hover);
+    }
+    
+    .about-bio p {
+      color: var(--text-mute);
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+    }
+    
+    .about-bio strong {
+      color: var(--text-main);
+    }
+    
+    .tech-stack-summary {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .tech-group {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 15px;
+    }
+    
+    .tech-group:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    
+    .tech-group-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    
+    .tech-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .badge {
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      padding: 4px 12px;
+      border-radius: 6px;
+      color: var(--text-mute);
+      transition: all 0.3s ease;
+    }
+    
+    .badge:hover {
+      background: rgba(88, 166, 255, 0.1);
+      color: var(--primary);
+      border-color: var(--card-border-hover);
+    }
+    
+    /* Currently Building Widget */
+    .currently-building-widget {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .progress-bar-container {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .progress-bar-fill {
+      height: 100%;
+      width: 60%;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+      border-radius: 10px;
+    }
+    
+    .sprint-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+    
+    .sprint-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      padding: 15px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .sprint-icon {
+      font-size: 1.2rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(88, 166, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+    }
+    
+    .sprint-item.complete .sprint-icon {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+    }
+    
+    .sprint-item.active .sprint-icon {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--gold);
+    }
+    
+    .sprint-info h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    
+    .sprint-info p {
+      font-size: 0.75rem;
+      color: var(--text-mute);
+    }
+    
+    /* Project Cards Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 30px;
+    }
+    
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    
+    .project-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+    
+    .project-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .project-tag {
+      font-size: 0.75rem;
+      font-family: 'Fira Code', monospace;
+      background: rgba(88, 166, 255, 0.1);
+      color: var(--primary);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(88, 166, 255, 0.2);
+    }
+    
+    .project-description {
+      color: var(--text-mute);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    
+    .project-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 15px;
+    }
+    
+    .project-tools {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .project-link {
+      font-size: 0.85rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.3s ease;
+    }
+    
+    .project-link:hover {
+      color: var(--accent);
+    }
+    
+    /* Connect / Contact */
+    .connect-section {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .connect-card {
+      background: linear-gradient(135deg, rgba(88, 166, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 50px 40px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    
+    .connect-card h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+    
+    .connect-card p {
+      color: var(--text-mute);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 60px 20px;
+      text-align: center;
+      background: rgba(7, 9, 14, 0.8);
+      position: relative;
+    }
+    
+    .quote-block {
+      font-size: 1.15rem;
+      color: var(--text-mute);
+      font-weight: 300;
+      font-style: italic;
+      margin-bottom: 30px;
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+    }
+    
+    .quote-block strong {
+      color: var(--text-main);
+    }
+    
+    .copyright {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+      
+      .subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .nav-menu {
+        display: none; /* Can expand to hamburger in production */
+      }
+      
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dynamic Glowing Blobs -->
+  <div class="glow-blob-1"></div>
+  <div class="glow-blob-2"></div>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <span>AItools.guru</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#connect">Connect</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="hero-section">
+    <div class="hero-content">
+      <div class="status-badge">
+        <span class="pulse-dot"></span>🟢 Open to Opportunities
+      </div>
+      <h1>Hello, I'm <span>Saurabh Shidhore</span></h1>
+      <p class="subtitle">
+        Bridging the gap between <strong>Technical Data Infrastructure</strong> and <strong>Business Operations Leadership</strong>. MS + MBA with a dedication to building automated pipelines, interactive products, and Generative AI business simulators.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">View Featured Projects</a>
+        <a href="#connect" class="btn btn-secondary">Get in Touch</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title">🚀 About & Operations</h2>
+    <div class="about-grid">
+      
+      <!-- Narrative Card -->
+      <div class="glass-card about-bio">
+        <p>
+          I specialize in designing and engineering <strong>end-to-end automated pipelines</strong>, building <strong>interactive business intelligence systems</strong>, and deploying high-impact data analytics tools.
+        </p>
+        <p>
+          With dual degrees in <strong>Master of Science (MS)</strong> and <strong>Master of Business Administration (MBA)</strong>, I speak the language of engineering squads and executive boardrooms equally. I focus on translating raw corporate datasets into structured metric frameworks that reveal growth bottlenecks.
+        </p>
+        <p>
+          I am currently expanding my capabilities in <strong>Analytics Engineering (dbt)</strong>, cloud platforms (Snowflake, BigQuery), and production **Machine Learning Operations (MLOps)** workflows.
+        </p>
+      </div>
+      
+      <!-- Tech stack Card -->
+      <div class="glass-card tech-stack-summary">
+        <div class="tech-group">
+          <div class="tech-group-title">Languages & Core</div>
+          <div class="tech-badges">
+            <span class="badge">Python</span>
+            <span class="badge">SQL (PostgreSQL, SQLite)</span>
+            <span class="badge">HTML5/CSS3</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">Bash</span>
+          </div>
+        </div>
+        
+        <div class="tech-group">
+          <div class="tech-group-title">Data Science & BI</div>
+          <div class="tech-badges">
+            <span class="badge">Pandas</span>
+            <span class="badge">NumPy</span>
+            <span class="badge">Plotly</span>
+            <span class="badge">Matplotlib</span>
+            <span class="badge">Power BI</span>
+            <span class="badge">Tableau</span>
+            <span class="badge">Advanced Excel (VBA)</span>
+          </div>
+        </div>
+        
+        <div class="tech-group">
+          <div class="tech-group-title">AI & Infrastructure</div>
+          <div class="tech-badges">
+            <span class="badge">LangChain</span>
+            <span class="badge">LlamaIndex</span>
+            <span class="badge">Hugging Face</span>
+            <span class="badge">Claude / Gemini APIs</span>
+            <span class="badge">Docker</span>
+            <span class="badge">Git / GitHub Actions</span>
+            <span class="badge">GCP</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Currently Building Sprint Widget -->
+      <div class="glass-card currently-building-widget">
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.4rem;">🔨 Active Project Sprint</h3>
+        <p style="color: var(--text-mute); font-size: 0.95rem;">
+          Currently shipping 10 AI + Data infrastructure applications in a high-intensity 10-day build sprint.
+        </p>
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill"></div>
+        </div>
+        
+        <div class="sprint-list">
+          <div class="sprint-item complete">
+            <div class="sprint-icon">✓</div>
+            <div class="sprint-info">
+              <h4>BI Dashboard</h4>
+              <p>Day 1-2 • Complete</p>
+            </div>
+          </div>
+          <div class="sprint-item complete">
+            <div class="sprint-icon">✓</div>
+            <div class="sprint-info">
+              <h4>ETL Data Pipeline</h4>
+              <p>Day 3-4 • Complete</p>
+            </div>
+          </div>
+          <div class="sprint-item complete">
+            <div class="sprint-icon">✓</div>
+            <div class="sprint-info">
+              <h4>Enterprise PM Playbook</h4>
+              <p>Day 5-6 • Complete</p>
+            </div>
+          </div>
+          <div class="sprint-item active">
+            <div class="sprint-icon">⚡</div>
+            <div class="sprint-info">
+              <h4>GenAI Summarizer</h4>
+              <p>Day 7-8 • Building</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2 class="section-title">📂 Featured Showcase</h2>
+    <div class="projects-grid">
+      
+      <!-- Card 1: Enterprise AI Playbook -->
+      <div class="glass-card project-card">
+        <div>
+          <div class="project-card-header">
+            <h3>🧠 Enterprise AI Playbook</h3>
+            <span class="project-tag">GenAI</span>
+          </div>
+          <p class="project-description">
+            An executive decision-support system and interactive browser-based ROI simulator showcasing LLM prompting and compliance workflows across 6 cross-functional roles. Includes automated logging and tokenization simulations.
+          </p>
+        </div>
+        <div class="project-card-footer">
+          <div class="project-tools">
+            <span class="badge">Python</span>
+            <span class="badge">HTML5</span>
+            <span class="badge">JS</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/AItools-guru/enterprise-ai-playbook" target="_blank" class="project-link">Code</a>
+            <a href="https://aitools-guru.github.io/enterprise-ai-playbook/prototype/" target="_blank" class="project-link">Launch ↗</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 2: Sales Performance Dashboard -->
+      <div class="glass-card project-card">
+        <div>
+          <div class="project-card-header">
+            <h3>📊 Sales Dashboard</h3>
+            <span class="project-tag">Analytics</span>
+          </div>
+          <p class="project-description">
+            Interactive Business Intelligence platform analyzing conversion bottlenecks, pipeline stages, and strategic accounts to address operational leakages. Custom-designed web interface overlaying robust models.
+          </p>
+        </div>
+        <div class="project-card-footer">
+          <div class="project-tools">
+            <span class="badge">Power BI</span>
+            <span class="badge">Postgres</span>
+            <span class="badge">Excel</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/AItools-guru/sales-performance-dashboard" target="_blank" class="project-link">Code</a>
+            <a href="https://aitools-guru.github.io/sales-performance-dashboard/prototype/" target="_blank" class="project-link">Launch ↗</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 3: Sales Performance Portfolio -->
+      <div class="glass-card project-card">
+        <div>
+          <div class="project-card-header">
+            <h3>💼 Product Portfolio</h3>
+            <span class="project-tag">Strategy</span>
+          </div>
+          <p class="project-description">
+            Agile-focused metrics mapping product delivery cycles to business ROI. Designed to provide transparent scorecards and forecast tracking metrics for SaaS directors and executive sponsors.
+          </p>
+        </div>
+        <div class="project-card-footer">
+          <div class="project-tools">
+            <span class="badge">Streamlit</span>
+            <span class="badge">Pandas</span>
+            <span class="badge">Plotly</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/AItools-guru/sales-performance-portfolio" target="_blank" class="project-link">Code</a>
+            <a href="https://aitools-guru.github.io/sales-performance-portfolio/prototype/" target="_blank" class="project-link">Launch ↗</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 4: Crypto ETL Pipeline -->
+      <div class="glass-card project-card">
+        <div>
+          <div class="project-card-header">
+            <h3>⚙️ Crypto ETL Pipeline</h3>
+            <span class="project-tag">Data Eng</span>
+          </div>
+          <p class="project-description">
+            Production-ready automated cryptocurrency pipeline extracting market parameters from the CoinGecko API, scrubbing data structures, engineering features, and storing data in a local SQL relational database. Includes GitHub Actions CI linting.
+          </p>
+        </div>
+        <div class="project-card-footer">
+          <div class="project-tools">
+            <span class="badge">Python</span>
+            <span class="badge">SQLite</span>
+            <span class="badge">Docker</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/AItools-guru/crypto-etl-pipeline" target="_blank" class="project-link">Code</a>
+            <a href="https://github.com/AItools-guru/crypto-etl-pipeline/blob/main/main.py" target="_blank" class="project-link">Script</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 5: SQL Sales Analytics -->
+      <div class="glass-card project-card">
+        <div>
+          <div class="project-card-header">
+            <h3>⚡ SQL Sales Analytics</h3>
+            <span class="project-tag">Database</span>
+          </div>
+          <p class="project-description">
+            Advanced analytical queries performing multi-stage cohort retention, complex customer lifetime values (CLV), Star schema design implementations, and pipeline velocity metrics using Window functions and CTEs.
+          </p>
+        </div>
+        <div class="project-card-footer">
+          <div class="project-tools">
+            <span class="badge">PostgreSQL</span>
+            <span class="badge">CTEs</span>
+            <span class="badge">OLAP</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/AItools-guru/sql-sales-analytics" target="_blank" class="project-link">Code</a>
+            <a href="https://github.com/AItools-guru/sql-sales-analytics/blob/main/queries.sql" target="_blank" class="project-link">Queries</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 6: Budget Tracker Excel -->
+      <div class="glass-card project-card">
+        <div>
+          <div class="project-card-header">
+            <h3>📅 Financial Budget Tracker</h3>
+            <span class="project-tag">Excel</span>
+          </div>
+          <p class="project-description">
+            Financial analytics asset built completely using automated scripts (openpyxl) generating stylized spreadsheets, complex macros, expense aggregation logs, and visual summaries based on the 50/30/20 allocation rules.
+          </p>
+        </div>
+        <div class="project-card-footer">
+          <div class="project-tools">
+            <span class="badge">Excel</span>
+            <span class="badge">VBA</span>
+            <span class="badge">Python</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/AItools-guru/budget-tracker-excel" target="_blank" class="project-link">Code</a>
+            <a href="https://github.com/AItools-guru/budget-tracker-excel/raw/main/budget_tracker.xlsx" target="_blank" class="project-link">Download</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Connect Section -->
+  <section id="connect" class="connect-section">
+    <div class="connect-card">
+      <h2>Let's Collaborate</h2>
+      <p>I am actively seeking Product/Project Management, Business Intelligence, or Analytics Engineer roles. Let's discuss how I can bring automation and analytics strategy to your projects.</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/saurabhshidhore/" target="_blank" class="btn btn-primary">LinkedIn Profile</a>
+        <a href="mailto:s.shidhore05@gmail.com" class="btn btn-secondary">s.shidhore05@gmail.com</a>
+        <a href="https://github.com/AItools-guru" target="_blank" class="btn btn-secondary">GitHub Profile</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="quote-block">
+      "Algorithms are cheap. <strong>Pipelines that run without intervention</strong>, and <strong>metrics that trigger immediate action</strong>, are priceless."
+    </div>
+    <div class="copyright">
+      &copy; 2026 Saurabh Shidhore. Designed with dark-mode glassmorphic aesthetics.
+    </div>
+  </footer>
+
+</body>
+</html>
