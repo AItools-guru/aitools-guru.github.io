@@ -360,7 +360,7 @@
     
     .progress-bar-fill {
       height: 100%;
-      width: 60%;
+      width: 80%;
       background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
       border-radius: 10px;
     }
@@ -801,6 +801,86 @@
       color: var(--accent);
     }
     
+    .project-card.flagship {
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      box-shadow: 0 8px 32px rgba(168, 85, 247, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card.flagship::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+    }
+    .flagship-tag {
+      font-size: 0.75rem;
+      font-family: 'Fira Code', monospace;
+      background: rgba(168, 85, 247, 0.15);
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      font-weight: 600;
+    }
+    .connect-flagship-highlight {
+      background: rgba(168, 85, 247, 0.05);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 25px 0;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(168, 85, 247, 0.05);
+      transition: all 0.3s ease;
+    }
+    .connect-flagship-highlight:hover {
+      background: rgba(168, 85, 247, 0.08);
+      border-color: rgba(168, 85, 247, 0.4);
+      box-shadow: 0 8px 30px rgba(168, 85, 247, 0.12);
+    }
+    .connect-flagship-highlight h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .connect-flagship-highlight p {
+      font-size: 0.95rem;
+      color: var(--text-mute);
+      margin-bottom: 20px !important;
+      line-height: 1.5;
+    }
+    .highlight-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-family: 'Fira Code', monospace;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(168, 85, 247, 0.3);
+    }
+    .highlight-actions {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .btn-sm {
+      padding: 8px 16px !important;
+      font-size: 0.85rem !important;
+    }
+    
     /* Connect / Contact */
     .connect-section {
       text-align: center;
@@ -965,7 +1045,7 @@
           With dual degrees in <strong>Master of Science (MS)</strong> and <strong>Master of Business Administration (MBA)</strong>, I act as the ultimate tech-business liaison. I focus on translating raw enterprise databases into structured, compliant pipelines and metrics dashboards that uncover bottlenecks.
         </p>
         <p>
-          Currently refining my systems capability in **Analytics Engineering (dbt)**, **Cloud Platforms (Snowflake/BigQuery)**, and **Machine Learning Operations (MLOps)** workflows.
+          Currently refining my systems capability in <strong>Analytics Engineering (dbt)</strong>, <strong>Cloud Platforms (Snowflake/BigQuery)</strong>, and <strong>Machine Learning Operations (MLOps)</strong> workflows.
         </p>
       </div>
       
@@ -1041,11 +1121,18 @@
               <p>Day 5-6 • Complete</p>
             </div>
           </div>
+          <div class="sprint-item complete">
+            <div class="sprint-icon">✓</div>
+            <div class="sprint-info">
+              <h4>GenAI Summarizer</h4>
+              <p>Day 7-8 • Complete</p>
+            </div>
+          </div>
           <div class="sprint-item active">
             <div class="sprint-icon">⚡</div>
             <div class="sprint-info">
-              <h4>GenAI Summarizer</h4>
-              <p>Day 7-8 • Building</p>
+              <h4>Multi-Agent Analytics</h4>
+              <p>Day 9-10 • Building</p>
             </div>
           </div>
         </div>
@@ -1264,6 +1351,32 @@
     <h2 class="section-title">📂 Featured Project Showcase</h2>
     <div class="projects-grid">
       
+      <!-- Card 0: Flagship GenAI PM Copilot -->
+      <div class="glass-card project-card flagship">
+        <div>
+          <div class="project-card-header">
+            <h3>🎙️ GenAI PM Copilot</h3>
+            <span class="flagship-tag">Flagship</span>
+          </div>
+          <p class="project-description">
+            An elite, multi-interactive SaaS product that refactors static meeting transcripts into conversational dashboards. Features an Executive KPI Dashboard with automated PDF export, an Agile Action Planner with checkable checklists & Sprint Progress Meter, a Speaker Intelligence tab with talk-time metrics and sentiment badges, and a live/simulated Ask PM Copilot chatbot utilizing Claude & Gemini.
+          </p>
+        </div>
+        <div class="project-card-footer">
+          <div class="project-tools">
+            <span class="badge">Streamlit</span>
+            <span class="badge">Anthropic Claude</span>
+            <span class="badge">Google Gemini</span>
+            <span class="badge">Pydantic</span>
+            <span class="badge">FPDF2</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/AItools-guru/GenAI-Meeting-Summarizer" target="_blank" class="project-link">Code</a>
+            <a href="https://genai-meeting-summarizer.streamlit.app" target="_blank" class="project-link">Launch ↗</a>
+          </div>
+        </div>
+      </div>
+      
       <!-- Card 1: Enterprise AI Playbook -->
       <div class="glass-card project-card">
         <div>
@@ -1416,6 +1529,20 @@
     <div class="connect-card">
       <h2>Let's Collaborate</h2>
       <p>I am actively seeking Product/Project Management, Business Intelligence, or Analytics Engineer roles. Let's discuss how I can bring automation and analytics strategy to your projects.</p>
+      
+      <!-- Flagship Project Highlight in Connect Section -->
+      <div class="connect-flagship-highlight">
+        <div class="highlight-badge">🚨 Flagship Project Showcase</div>
+        <h3>🎙️ Next-Gen GenAI PM Copilot & Operations Analytics Suite</h3>
+        <p>
+          Ready to see my product management and analytics automation skills in action? Check out my premier flagship application. It connects real-time meeting transcription to structured KPI metric logs, checkable agile backlogs with automatic progress tracking, attendee speaker intelligence, and an interactive conversational PM Copilot.
+        </p>
+        <div class="highlight-actions">
+          <a href="https://genai-meeting-summarizer.streamlit.app" target="_blank" class="btn btn-primary btn-sm">⚡ Launch Live SaaS App</a>
+          <a href="https://github.com/AItools-guru/GenAI-Meeting-Summarizer" target="_blank" class="btn btn-secondary btn-sm">📂 Inspect Code Repository</a>
+        </div>
+      </div>
+
       <div class="social-links">
         <a href="https://www.linkedin.com/in/saurabhshidhore/" target="_blank" class="btn btn-primary">LinkedIn Profile</a>
         <a href="mailto:s.shidhore05@gmail.com" class="btn btn-secondary">s.shidhore05@gmail.com</a>
