@@ -907,6 +907,43 @@
       padding: 8px 16px !important;
       font-size: 0.85rem !important;
     }
+    .highlight-projects-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .highlight-project-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .highlight-project-item:first-child::after {
+      content: '';
+      position: absolute;
+      right: -20px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    @media (max-width: 768px) {
+      .highlight-projects-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      .highlight-project-item:first-child::after {
+        display: none;
+      }
+      .highlight-project-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 25px;
+      }
+      .highlight-project-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
     
     /* Connect / Contact */
     .connect-section {
@@ -1490,12 +1527,31 @@
       <!-- Flagship Project Highlight in Connect Section -->
       <div class="connect-flagship-highlight">
         <div class="highlight-badge">🚨 Flagship Project Showcase</div>
-        <h3>🎙️ Next-Gen GenAI Meeting Summarizer & Operations Analytics Suite</h3>
-        <p>
-          Ready to see my product management and analytics automation skills in action? Check out my premier flagship application. It connects real-time meeting transcription to structured KPI metric logs, checkable agile backlogs with automatic progress tracking, attendee speaker intelligence, and an interactive conversational PM Copilot.
-        </p>
-        <div class="highlight-actions">
-          <a href="https://genai-meeting-summarizer.streamlit.app" target="_blank" class="btn btn-primary btn-sm">⚡ Launch Live SaaS App</a>
+        
+        <div class="highlight-projects-container">
+          
+          <!-- Project 1: Meeting Summarizer -->
+          <div class="highlight-project-item">
+            <h3>🎙️ GenAI Meeting Summarizer</h3>
+            <p>
+              An elite, multi-interactive SaaS product refactoring static transcripts into dashboards with speaker intelligence, agile action planners, automated PDF exporting, and a simulated PM Copilot.
+            </p>
+            <div class="highlight-actions">
+              <a href="https://genai-meeting-summarizer.streamlit.app" target="_blank" class="btn btn-primary btn-sm">⚡ Launch Live App</a>
+            </div>
+          </div>
+          
+          <!-- Project 2: VidGist -->
+          <div class="highlight-project-item">
+            <h3>🎥 VidGist: GenAI YouTube Summarizer</h3>
+            <p>
+              A premium full-stack YouTube Video Summarization application. Offers 3-tiered summaries powered by Google Gemini 3.5 Flash, secure Google Auth sign-in, and cloud-synced user history.
+            </p>
+            <div class="highlight-actions">
+              <a href="https://vid-gist-seven.vercel.app" target="_blank" class="btn btn-primary btn-sm">⚡ Launch Live App</a>
+            </div>
+          </div>
+          
         </div>
       </div>
 
