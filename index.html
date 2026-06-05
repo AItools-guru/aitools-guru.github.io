@@ -1389,6 +1389,9 @@
           <button class="terminal-btn active" id="term-btn-1" onclick="runTerminal('pm')">📋 Product Manager</button>
           <button class="terminal-btn" id="term-btn-2" onclick="runTerminal('engineer')">💻 Relational Architect</button>
           <button class="terminal-btn" id="term-btn-3" onclick="runTerminal('logistics')">📦 Logistics Analyst</button>
+          <button class="terminal-btn" id="term-btn-4" onclick="runTerminal('po')">👤 Product Owner</button>
+          <button class="terminal-btn" id="term-btn-5" onclick="runTerminal('project')">🚩 Project Manager</button>
+          <button class="terminal-btn" id="term-btn-6" onclick="runTerminal('ba')">⚡ Business Analyst</button>
         </div>
         
         <!-- Terminal main code screen -->
@@ -1679,7 +1682,22 @@
       logistics: {
         role: "📦 Logistics Analyst",
         prompt: `SYSTEM ROLE: Supply Chain Network Delay Risk Assessor.\nINPUT: Active cargo route logs, paginated carrier APIs, and origin Congestion data.\nINSTRUCTION: Calculate Safety Stock buffers using (Max LT - Avg LT) * Daily Demand.`,
-        report: `📊 OPERATIONAL RISK DIAGNOSTIC:\n- Node Failure: Seattle customs port delays (+9 days variance).\n- Safety Stock Correction: Increase local warehouse supply by +10,800 units for high-velocity SKUs.\n- Direct Demurrage exposure: $13,050 direct holding fees.`
+        report: `📊 OPERATIONAL RISK DIAGNOSTIC:\n- Node Failure: Seattle customs port delays (+9 days variance).\n- Safety Stock Correction: Increase local warehouse supply by +10,800 units for Q3 to prevent distribution node stockouts.\n- Direct Demurrage exposure: $13,050 direct holding fees.`
+      },
+      po: {
+        role: "👤 Product Owner",
+        prompt: `SYSTEM ROLE: Principal Product Owner and Agile SDLC Expert.\nINPUT: Feature descriptions, stakeholder requirements, and user persona profiles.\nINSTRUCTION: Draft Gherkin BDD Acceptance Criteria for alternate paths & technical constraints.`,
+        report: `🛠️ AGILE BACKLOG OUTPUT:\n- Story: "As an Enterprise Logistics Manager, I want regional port diversion suggestions so that I can prevent distribution node stockouts."\n- BDD: Given delayed container LN-402, When delay variance > 5 days, Then render 'Alternative Route' button.\n- Complexity: 5 Fibonacci Points.`
+      },
+      project: {
+        role: "🚩 Project Manager",
+        prompt: `SYSTEM ROLE: Certified PMP Lead Project Manager.\nINPUT: Project timelines, task owners, and milestone bottleneck logs.\nINSTRUCTION: Identify milestone dependencies and Critical Path delivery risks.`,
+        report: `🚩 STATUS DIAGNOSTIC:\n- Critical Path Status: Behind Schedule (Delay: 12 days).\n- Bottleneck: Database schema migration blocked by resource constraints.\n- Recovery Plan: Fast-track Power BI frontend using static JSON mock data.`
+      },
+      ba: {
+        role: "⚡ Business Analyst",
+        prompt: `SYSTEM ROLE: Enterprise Business Analyst and RevOps Lead.\nINPUT: Opportunity funnels, stage transition velocity, and cohort retention logs.\nINSTRUCTION: Diagnose conversion leakages and average days in Proposal status.`,
+        report: `📈 REVOPS AUDIT SCORECARD:\n- Conversion Leak: 33% drop at Proposal stage.\n- Cycle Duration: 52 days stalled waiting for manual pricing approvals.\n- Financial Recovery Impact: $8.2M ARR retrieved by automating pricing workflows.`
       }
     };
     
@@ -1693,9 +1711,8 @@
       const buttons = document.querySelectorAll('.terminal-sidebar button');
       buttons.forEach(b => b.classList.remove('active'));
       
-      if (roleKey === 'pm') document.getElementById('term-btn-1').classList.add('active');
-      else if (roleKey === 'engineer') document.getElementById('term-btn-2').classList.add('active');
-      else if (roleKey === 'logistics') document.getElementById('term-btn-3').classList.add('active');
+      const activeBtn = Array.from(buttons).find(b => b.getAttribute('onclick').includes(`'${roleKey}'`));
+      if (activeBtn) activeBtn.classList.add('active');
       
       const screen = document.getElementById('terminal-screen');
       screen.innerHTML = `<div class="term-line">&gt; execute --role=${roleKey}</div>`;
