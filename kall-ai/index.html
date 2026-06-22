@@ -5,6 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kall AI - Meeting Transcripts to Actionable Backlogs, Instantly</title>
     <meta name="description" content="Kall AI is an elite meeting summarizer and operations cockpit. Turn raw Zoom or Teams transcripts into structured sprint backlogs, speaker analytics, and get assistance from an AI PM Copilot.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kall.ai/">
+    <meta property="og:title" content="Kall AI - Meeting Transcripts to Actionable Backlogs, Instantly">
+    <meta property="og:description" content="Kall AI is an elite meeting summarizer and operations cockpit. Turn raw Zoom or Teams transcripts into structured sprint backlogs, speaker analytics, and get assistance from an AI PM Copilot.">
+    <meta property="og:image" content="https://kall.ai/assets/home.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kall.ai/">
+    <meta property="twitter:title" content="Kall AI - Meeting Transcripts to Actionable Backlogs, Instantly">
+    <meta property="twitter:description" content="Kall AI is an elite meeting summarizer and operations cockpit. Turn raw Zoom or Teams transcripts into structured sprint backlogs, speaker analytics, and get assistance from an AI PM Copilot.">
+    <meta property="twitter:image" content="https://kall.ai/assets/home.png">
+
+    <!-- JSON-LD Structured Data for SaaS -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Kall AI",
+      "operatingSystem": "All",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      },
+      "description": "Kall AI is an elite meeting summarizer and operations cockpit. Turn raw Zoom or Teams transcripts into structured sprint backlogs, speaker analytics, and get assistance from an AI PM Copilot."
+    }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <!-- Google Fonts -->
@@ -19,7 +51,7 @@
             --card-bg: rgba(15, 23, 42, 0.55);
             --border-color: rgba(255, 255, 255, 0.08);
             --primary-grad: linear-gradient(135deg, #f97316 0%, #6366f1 100%);
-            --glow-grad: linear-gradient(90deg, #fdba74, #f97316, #818cf8);
+            --glow-grad: linear-gradient(90deg, #0284c7, #0ea5e9, #22d3ee);
             --text-primary: #f8fafc;
             --text-secondary: #cbd5e1;
             --text-muted: #94a3b8;
@@ -1019,6 +1051,54 @@
             display: block;
         }
 
+        /* 🌟 TESTIMONIALS */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .testimonial-card {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition-smooth);
+        }
+        .testimonial-card:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.05);
+        }
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+        .testimonial-quote {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 16px;
+        }
+        .author-name {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+        }
+        .author-title {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
         /* 📋 FOOTER */
         footer {
             border-top: 1px solid var(--border-color);
@@ -1579,11 +1659,195 @@
                 min-width: 180px;
             }
         }
+
+        /* Dynamic Radar Scanner */
+        .radar-container {
+            position: relative;
+            width: 420px;
+            height: 420px;
+            margin: 70px auto 0 auto;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            box-shadow: 0 0 50px rgba(6, 182, 212, 0.15), inset 0 0 40px rgba(139, 92, 246, 0.1);
+            overflow: hidden;
+            cursor: crosshair;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .radar-container:hover {
+            box-shadow: 0 0 80px rgba(6, 182, 212, 0.4), inset 0 0 60px rgba(139, 92, 246, 0.3);
+            border-color: rgba(6, 182, 212, 0.8);
+        }
+
+        .radar-grid {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background-image: 
+                linear-gradient(rgba(6, 182, 212, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.15) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center center;
+            border: 2px solid rgba(6, 182, 212, 0.6);
+        }
+        .radar-grid::before, .radar-grid::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 1px dashed rgba(6, 182, 212, 0.4);
+        }
+        .radar-grid::before { width: 210px; height: 210px; }
+        .radar-grid::after { width: 315px; height: 315px; }
+
+        .radar-sweep {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 210px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 1));
+            transform-origin: 0 50%;
+            animation: sweep 4s infinite linear;
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.8);
+            z-index: 2;
+        }
+        .radar-sweep::after {
+            content: '';
+            position: absolute;
+            top: -105px; left: 0;
+            width: 210px; height: 210px;
+            background: conic-gradient(from 270deg, transparent 75%, rgba(6, 182, 212, 0.4) 100%);
+            transform-origin: 0 105px;
+        }
+        .radar-container:hover .radar-sweep {
+            animation-duration: 1.2s;
+        }
+
+        @keyframes sweep {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .radar-core {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px; height: 70px;
+            background: rgba(15, 23, 42, 0.95);
+            border: 2px solid #22d3ee;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            box-shadow: 0 0 20px #22d3ee;
+            z-index: 10;
+        }
+
+        .radar-wave {
+            width: 4px;
+            background: #a855f7;
+            border-radius: 2px;
+            animation: wave-bounce 1.2s infinite ease-in-out;
+        }
+        .radar-wave:nth-child(1) { height: 12px; animation-delay: 0.1s; }
+        .radar-wave:nth-child(2) { height: 24px; animation-delay: 0.2s; }
+        .radar-wave:nth-child(3) { height: 36px; animation-delay: 0.3s; }
+        .radar-wave:nth-child(4) { height: 24px; animation-delay: 0.4s; }
+        .radar-wave:nth-child(5) { height: 12px; animation-delay: 0.5s; }
+
+        .radar-container:hover .radar-wave {
+            animation-duration: 0.5s;
+            background: #22d3ee;
+        }
+
+        @keyframes wave-bounce {
+            0%, 100% { transform: scaleY(0.4); opacity: 0.6; }
+            50% { transform: scaleY(1.3); opacity: 1; box-shadow: 0 0 10px currentColor; }
+        }
+
+        .radar-chip {
+            position: absolute;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            z-index: 5;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            border: 1px solid;
+            animation: float-up 8s infinite;
+        }
+        
+        .chip-1 { color: #ef4444; border-color: rgba(239, 68, 68, 0.4); top: 55%; left: 10%; animation-delay: 0s; box-shadow: 0 0 15px rgba(239, 68, 68, 0.2); }
+        .chip-2 { color: #a855f7; border-color: rgba(168, 85, 247, 0.4); top: 65%; left: 55%; animation-delay: 0.8s; box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); }
+        .chip-3 { color: #22d3ee; border-color: rgba(34, 211, 238, 0.4); top: 75%; left: 20%; animation-delay: 1.6s; box-shadow: 0 0 15px rgba(34, 211, 238, 0.2); }
+        .chip-4 { color: #ef4444; border-color: rgba(239, 68, 68, 0.4); top: 50%; left: 65%; animation-delay: 2.4s; box-shadow: 0 0 15px rgba(239, 68, 68, 0.2); }
+        .chip-5 { color: #a855f7; border-color: rgba(168, 85, 247, 0.4); top: 60%; left: 5%; animation-delay: 3.2s; box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); }
+        .chip-6 { color: #10b981; border-color: rgba(16, 185, 129, 0.4); top: 80%; left: 45%; animation-delay: 4.0s; box-shadow: 0 0 15px rgba(16, 185, 129, 0.2); }
+        .chip-7 { color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); top: 45%; left: 15%; animation-delay: 4.8s; box-shadow: 0 0 15px rgba(245, 158, 11, 0.2); }
+        .chip-8 { color: #3b82f6; border-color: rgba(59, 130, 246, 0.4); top: 70%; left: 60%; animation-delay: 5.6s; box-shadow: 0 0 15px rgba(59, 130, 246, 0.2); }
+        .chip-9 { color: #a855f7; border-color: rgba(168, 85, 247, 0.4); top: 85%; left: 10%; animation-delay: 6.4s; box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); }
+        .chip-10 { color: #f43f5e; border-color: rgba(244, 63, 94, 0.4); top: 55%; left: 70%; animation-delay: 7.2s; box-shadow: 0 0 15px rgba(244, 63, 94, 0.2); }
+
+        @keyframes float-up {
+            0% { transform: translateY(0) scale(0.6); opacity: 0; }
+            15% { transform: translateY(-25px) scale(1); opacity: 1; }
+            75% { transform: translateY(-75px) scale(1); opacity: 1; }
+            100% { transform: translateY(-100px) scale(0.6); opacity: 0; }
+        }
+
+        .radar-ping {
+            position: absolute;
+            width: 8px; height: 8px;
+            background: #22d3ee;
+            border-radius: 50%;
+            opacity: 0;
+            z-index: 3;
+        }
+        .ping-1 { top: 35%; left: 25%; animation: ping-flash 4s infinite 1s; }
+        .ping-2 { top: 65%; left: 75%; animation: ping-flash 4s infinite 2.5s; }
+        .ping-3 { top: 25%; left: 65%; animation: ping-flash 4s infinite 3.8s; }
+
+        @keyframes ping-flash {
+            0% { opacity: 0; transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.8); }
+            5% { opacity: 1; transform: scale(2); box-shadow: 0 0 15px 6px rgba(34, 211, 238, 0.5); }
+            15% { opacity: 0; transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
+            100% { opacity: 0; }
+        }
+
+        .radar-tooltip {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: #22d3ee;
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 4px 12px;
+            border-radius: 4px;
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            pointer-events: none;
+        }
+        .radar-container:hover .radar-tooltip {
+            opacity: 1;
+        }
     </style>
     <!-- Firebase SDK (v10.8.0 Compatibility Mode) -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <!-- Cloudflare Turnstile Security Widget Script -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -1628,20 +1892,15 @@
         <div class="spa-view active" id="view-home">
             <section class="hero">
                 <div class="container">
-                    <div class="hero-badge-wrapper">
-                        <div class="hero-badge">
-                            <span></span>
-                            Kall AI Operations Cockpit v3.0
-                        </div>
-                    </div>
+
                     
                     <h1>
-                        Multi-Modal Meetings,<br>
-                        <span class="gradient-text">end to end.</span>
+                        Meeting Transcripts,<br>
+                        <span class="gradient-text">turned into tickets.</span>
                     </h1>
                     
                     <p class="lead">
-                        Upload meeting audio directly or scan whiteboard brainstorm sessions. Kall AI structures unstructured transcripts into Pydantic-validated agile backlogs. Fully private.
+                        Drop your raw transcripts. Kall AI automatically extracts agile backlogs, blockers, and operational insights in seconds.
                     </p>
                     
                     <div class="hero-ctas">
@@ -1652,59 +1911,42 @@
                     <div class="hero-subtext">No credit card required • 100% Private (No DB Storage)</div>
                     
                     <div class="trust-badge-line" style="margin-top: 25px; font-size: 0.85rem; color: #64748b; font-family: 'Outfit', sans-serif; text-align: center;">
-                        🔒 Built by ex-Google PM &bull; Used internally by 3 product teams &bull; Zero data used for AI training
+                        🔒 Built for Agile Teams &bull; Strict Pydantic Validation &bull; Zero data used for AI training
                     </div>
 
-                    <!-- Notee-style Live Recording Dashboard Player -->
-                    <div class="mockup-container">
-                        <div class="mockup-glow"></div>
-                        <div class="dashboard-mockup">
-                            <div class="mock-rec-row">
-                                <div class="mock-rec-indicator">Recording</div>
-                                <div class="mock-wave">
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                </div>
-                                <div class="mock-rec-timer">05:00</div>
-                            </div>
-                            
-                            <!-- Summary Skeleton -->
-                            <div class="mock-section-label">⚡ SUMMARY</div>
-                            <div class="mock-summary-skeleton">
-                                <div class="mock-skeleton-line"></div>
-                                <div class="mock-skeleton-line short"></div>
-                                <div class="mock-skeleton-line shorter"></div>
-                            </div>
-                            
-                            <!-- Clickable Mock Backlog items -->
-                            <div class="mock-section-label">📋 ACTION ITEMS</div>
-                            
-                            <div class="mock-backlog-item completed" onclick="toggleMockBacklog(this)">
-                                <div class="mock-checkbox"></div>
-                                <span class="mock-text">Send the revised proposal to Sarah</span>
-                            </div>
-                            
-                            <div class="mock-backlog-item" onclick="toggleMockBacklog(this)">
-                                <div class="mock-checkbox"></div>
-                                <span class="mock-text">Book a follow-up for next Tuesday</span>
-                            </div>
-                            
-                            <div class="mock-backlog-item" onclick="toggleMockBacklog(this)">
-                                <div class="mock-checkbox"></div>
-                                <span class="mock-text">Share the Q3 numbers with the team</span>
-                            </div>
+                    <!-- Dynamic Radar Scanner Component -->
+                    <div class="radar-container" title="Analyzing Transcript...">
+                        <div class="radar-grid"></div>
+                        <div class="radar-sweep"></div>
+                        
+                        <div class="radar-ping ping-1"></div>
+                        <div class="radar-ping ping-2"></div>
+                        <div class="radar-ping ping-3"></div>
+
+                        <div class="radar-core">
+                            <div class="radar-wave"></div>
+                            <div class="radar-wave"></div>
+                            <div class="radar-wave"></div>
+                            <div class="radar-wave"></div>
+                            <div class="radar-wave"></div>
                         </div>
+
+                        <div class="radar-chip chip-1">[BUG] Login API 500 Error</div>
+                        <div class="radar-chip chip-2">[TASK] Update Q3 Roadmap</div>
+                        <div class="radar-chip chip-3">[INSIGHT] High Churn Risk</div>
+                        <div class="radar-chip chip-4">[BLOCKER] Stripe API Down</div>
+                        <div class="radar-chip chip-5">[EPIC] Mobile Re-architecture</div>
+                        <div class="radar-chip chip-6">[METRIC] Velocity +14%</div>
+                        <div class="radar-chip chip-7">[ACTION] Schedule Design Sync</div>
+                        <div class="radar-chip chip-8">[OWNER] @sarah_jenkins</div>
+                        <div class="radar-chip chip-9">[STORY] User Onboarding Flow</div>
+                        <div class="radar-chip chip-10">[DEPENDENCY] Auth0 Setup</div>
+                        
+                        <div class="radar-tooltip">⚡ Processing 45m Standup...</div>
                     </div>
 
                     <!-- Divider Section Header for App Showcase -->
-                    <div class="section-header" style="margin-top: 100px; margin-bottom: 40px;">
+                    <div class="section-header" style="margin-top: 70px; margin-bottom: 40px;">
                         <span>APP COCKPIT SHOWCASE</span>
                         <h2 style="font-size: 2.2rem; font-weight: 800; font-family: 'Outfit', sans-serif;">Take Control of Your Post-Meeting Workflows</h2>
                         <p style="color: var(--text-secondary); max-width: 600px; margin: 12px auto 0 auto; font-size: 1.05rem; line-height: 1.6;">
@@ -1723,21 +1965,21 @@
                                     <span class="browser-dot green"></span>
                                 </div>
                                 <div class="browser-tabs">
-                                    <button class="browser-tab active" onclick="switchShowcaseTab(0)">🎙️ Operations Uploader</button>
-                                    <button class="browser-tab" onclick="switchShowcaseTab(1)">📊 Sprint Standup Cockpit</button>
-                                    <button class="browser-tab" onclick="switchShowcaseTab(2)">📝 Retro Dashboard</button>
+                                    <button class="browser-tab active" onclick="switchShowcaseTab(0)">🎙️ Meeting Input Cockpit</button>
+                                    <button class="browser-tab" onclick="switchShowcaseTab(1)">📊 Agile Action Planner</button>
+                                    <button class="browser-tab" onclick="switchShowcaseTab(2)">📝 Executive Dashboard</button>
                                 </div>
                                 <div style="width: 60px;"></div> <!-- Spacer to center tabs -->
                             </div>
                             <div class="browser-content">
                                 <div class="browser-slide active">
-                                    <img src="assets/home.png" alt="Operations Uploader">
+                                    <img src="assets/home.png" alt="Meeting Input Cockpit">
                                 </div>
                                 <div class="browser-slide">
-                                    <img src="assets/sprint_standup.png" alt="Sprint Standup Cockpit">
+                                    <img src="assets/sprint_standup.png" alt="Agile Action Planner">
                                 </div>
                                 <div class="browser-slide">
-                                    <img src="assets/project_retro.png" alt="Project Retro Dashboard">
+                                    <img src="assets/project_retro.png" alt="Executive Dashboard">
                                 </div>
                             </div>
                         </div>
@@ -1892,7 +2134,7 @@
                                     <td style="text-align: center;"><span class="comparison-check">✓</span></td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Recruiter Sandbox Demo Mode</strong> (No API Key required)</td>
+                                    <td><strong>Free Sandbox Demo Mode</strong> (No API Key required)</td>
                                     <td class="highlight" style="text-align: center;"><span class="comparison-check">✓</span></td>
                                     <td style="text-align: center;"><span class="comparison-cross">✗</span></td>
                                     <td style="text-align: center;"><span class="comparison-cross">✗</span></td>
@@ -1909,6 +2151,46 @@
                 </div>
             </section>
 
+            <!-- 🌟 METRICS SECTION -->
+            <section class="work-section" id="metrics-section" style="border-top: 1px solid var(--border-color); padding-top: 80px;">
+                <div class="container">
+                    <div class="section-header">
+                        <span>PLATFORM METRICS</span>
+                        <h2>Built with feedback from Product Managers, Founders, and Engineering Teams</h2>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 40px;">
+                        <!-- Metric 1 -->
+                        <div class="glass-card" style="text-align: center; padding: 30px 20px;">
+                            <div style="font-size: 2.5rem; font-weight: 800; color: var(--accent-orange); font-family: 'Outfit', sans-serif; margin-bottom: 10px;">10+ Hrs</div>
+                            <p style="color: var(--text-main); font-weight: 600; margin-bottom: 5px;">Saved per Sprint</p>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Automated ticket creation</p>
+                        </div>
+
+                        <!-- Metric 2 -->
+                        <div class="glass-card" style="text-align: center; padding: 30px 20px;">
+                            <div style="font-size: 2.5rem; font-weight: 800; color: var(--accent-cyan); font-family: 'Outfit', sans-serif; margin-bottom: 10px;">100%</div>
+                            <p style="color: var(--text-main); font-weight: 600; margin-bottom: 5px;">Ephemeral Privacy</p>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Zero database retention</p>
+                        </div>
+
+                        <!-- Metric 3 -->
+                        <div class="glass-card" style="text-align: center; padding: 30px 20px;">
+                            <div style="font-size: 2.5rem; font-weight: 800; color: #a5b4fc; font-family: 'Outfit', sans-serif; margin-bottom: 10px;">Zero</div>
+                            <p style="color: var(--text-main); font-weight: 600; margin-bottom: 5px;">UI Breakages</p>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Strict Pydantic schemas</p>
+                        </div>
+
+                        <!-- Metric 4 -->
+                        <div class="glass-card" style="text-align: center; padding: 30px 20px;">
+                            <div style="font-size: 2.5rem; font-weight: 800; color: #22c55e; font-family: 'Outfit', sans-serif; margin-bottom: 10px;">Any</div>
+                            <p style="color: var(--text-main); font-weight: 600; margin-bottom: 5px;">Input Format</p>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Audio, Text &amp; Whiteboards</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- 🏷️ ACCESS PLANS / PRICING SECTION -->
             <section class="pricing-section">
                 <div class="container">
@@ -1920,9 +2202,9 @@
                     <div class="pricing-grid">
                         <!-- Card 1 -->
                         <div class="glass-card pricing-card">
-                            <h3>Recruiter Sandbox</h3>
+                            <h3>Free Sandbox</h3>
                             <div class="pricing-price">Free <span>/ Sandbox</span></div>
-                            <p class="pricing-desc">Perfect for recruiters and portfolio evaluators testing the interface cockpit.</p>
+                            <p class="pricing-desc">Perfect for testing the interface cockpit with mock data before plugging your key.</p>
                             <ul class="pricing-features">
                                 <li>No API keys required</li>
                                 <li>Preloaded Sprint Alignment transcripts</li>
@@ -1985,7 +2267,7 @@
                         <div class="step-node">
                             <div class="step-icon-circle">🎙️</div>
                             <h3>During: Live in the room</h3>
-                            <p>Record your screen or session audio, then import or paste the raw transcripts (.txt, .srt, .vtt) into the Kall AI Operations Uploader.</p>
+                            <p>Record your screen or session audio, then import or paste the raw transcripts (.txt, .srt, .vtt) into the Kall AI Meeting Input Cockpit.</p>
                         </div>
                         
                         <!-- After -->
@@ -2001,24 +2283,32 @@
                         <h3>⚡ App Fast-Track Checklist</h3>
                         <ul class="checklist-ul">
                             <li>
+                                <span class="checklist-label">Enter Name :</span>
+                                <span class="checklist-desc">Personalize the workspace by entering your name under 👤 Who's running this session? in the "Paste Transcript" tab.</span>
+                            </li>
+                            <li>
                                 <span class="checklist-label">Load Data :</span>
-                                <span class="checklist-desc">Click "💡 Load Q3 Sprint Demo Transcript" to auto-fill a complete cross-functional alignment call in State 1.</span>
+                                <span class="checklist-desc">Click the "Paste Transcript" tab, then click the `💡 Load Q3 Sprint Demo Transcript` button to auto-fill the demo transcript.</span>
                             </li>
                             <li>
                                 <span class="checklist-label">Extract Insights :</span>
-                                <span class="checklist-desc">Click "🚀 Extract Operational Insights" to execute the structured Pydantic parser.</span>
+                                <span class="checklist-desc">Click the `🚀 Extract Operational Insights` button to run the Pydantic-enforced extraction engine.</span>
                             </li>
                             <li>
-                                <span class="checklist-label">Manage Backlogs :</span>
-                                <span class="checklist-desc">Check off action items in the interactive list and add new tasks to update velocity charts dynamically.</span>
+                                <span class="checklist-label">Select Module :</span>
+                                <span class="checklist-desc">Choose Executive Dashboard, Agile Action Planner, Speaker Analytics, or Ask PM Copilot from the tabs to explore.</span>
                             </li>
                             <li>
-                                <span class="checklist-label">Inspect Speakers :</span>
-                                <span class="checklist-desc">Check talk-time distributions and search raw records inside the Speaker Analytics dashboard.</span>
+                                <span class="checklist-label">Track Backlog :</span>
+                                <span class="checklist-desc">Check off items, and use the task form to verify the velocity charts update dynamically.</span>
                             </li>
                             <li>
-                                <span class="checklist-label">Consult Copilot :</span>
-                                <span class="checklist-desc">Open the chat pane to query past decisions or milestones using Anthropic/Google LLM reasoning.</span>
+                                <span class="checklist-label">Analyze Speakers :</span>
+                                <span class="checklist-desc">Open the Speaker Analytics tab to inspect talk-time shares and filter transcript content.</span>
+                            </li>
+                            <li>
+                                <span class="checklist-label">Chat with Copilot :</span>
+                                <span class="checklist-desc">Select the Ask PM Copilot tab and ask questions about past decisions, deadlines, or project details.</span>
                             </li>
                         </ul>
 
@@ -2182,8 +2472,11 @@
 
                         <label class="checkbox-row" id="terms-checkbox-row">
                             <input type="checkbox" required checked>
-                            <span>I agree to the Terms of Service and Privacy Policy</span>
+                            <span>I agree to the <a href="javascript:void(0)" onclick="showPolicyModal('terms')" style="color: #6366f1; text-decoration: underline;">Terms of Service</a> and <a href="javascript:void(0)" onclick="showPolicyModal('privacy')" style="color: #6366f1; text-decoration: underline;">Privacy Policy</a></span>
                         </label>
+
+                        <!-- Cloudflare Turnstile Verification Widget -->
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAADo6I3Py_xrGrM9s" data-theme="dark" style="margin: 15px 0; display: flex; justify-content: center;"></div>
 
                         <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px 0; font-family:'Outfit', sans-serif; font-size: 0.95rem;" id="submit-auth-btn">
                             Create Account
@@ -2285,8 +2578,54 @@
                 navToggle.classList.remove('active');
             }
 
+            // Trigger Cloudflare Turnstile rendering on tab switch to login (since it is hidden by default on load)
+            if (tabId === 'login') {
+                setTimeout(() => {
+                    if (window.turnstile) {
+                        try {
+                            window.turnstile.implicitRender();
+                        } catch (e) {
+                            console.error("Turnstile render error: ", e);
+                        }
+                    }
+                }, 150);
+            }
+
             // Scroll window to top
             window.scrollTo(0, 0);
+        }
+
+        // Beautiful glassmorphic modal for Terms and Privacy Policy
+        function showPolicyModal(type) {
+            let title = "";
+            let content = "";
+            if (type === 'terms') {
+                title = "Terms of Service";
+                content = "Welcome to Kall AI. By accessing or using our meeting summarizer cockpit and SaaS services, you agree to be bound by these Terms of Service. 1. You agree to use the service in compliance with local wiretapping and consent laws regarding recording. 2. We process transcripts temporarily in memory to generate summaries; we do not store raw audio files or training models on your proprietary prompt data. 3. All intellectual property remains owned by the respective user.";
+            } else {
+                title = "Privacy Policy";
+                content = "Your privacy is our priority. 1. Data Processing: We temporarily capture, attribute, and transcribe audio inputs for the sole purpose of generating executive summaries. 2. Storage: Custom API keys are held strictly in temporary browser session memory and are never cached or written to our databases. 3. Third-party APIs: Data is processed through selected LLM Providers (Google Gemini / Anthropic Claude) in compliance with their API confidentiality terms (zero-training usage).";
+            }
+            
+            let modal = document.getElementById("policy-modal");
+            if (!modal) {
+                modal = document.createElement("div");
+                modal.id = "policy-modal";
+                modal.innerHTML = `
+                    <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); z-index: 10000; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px);">
+                        <div class="glass-card" style="width: 90%; max-width: 500px; padding: 30px; border: 1px solid rgba(255,255,255,0.1); background: rgba(15,23,42,0.95); box-shadow: 0 20px 40px rgba(0,0,0,0.5); text-align: left; border-radius: 16px;">
+                            <h3 id="policy-modal-title" style="margin-top: 0; margin-bottom: 15px; font-family: 'Outfit', sans-serif; font-weight: 800; color: #f8fafc; font-size: 1.4rem;"></h3>
+                            <div id="policy-modal-content" style="color: #cbd5e1; font-family: 'Inter', sans-serif; font-size: 0.9rem; line-height: 1.6; max-height: 300px; overflow-y: auto; margin-bottom: 20px;"></div>
+                            <button onclick="document.getElementById('policy-modal').style.display='none'" class="btn btn-primary" style="width: 100%; padding: 10px 0; font-family: 'Outfit', sans-serif; font-weight: 600;">Close</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            }
+            
+            document.getElementById("policy-modal-title").innerText = title;
+            document.getElementById("policy-modal-content").innerText = content;
+            modal.style.display = "flex";
         }
 
         // FAQ accordion toggle logic
