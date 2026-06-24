@@ -118,13 +118,13 @@
     .nav-logo {
       font-family: 'Outfit', sans-serif;
       font-weight: 800;
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       color: var(--text-main);
       text-decoration: none;
       letter-spacing: -0.5px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
     
     .nav-logo span {
@@ -134,8 +134,8 @@
     }
 
     .nav-logo-svg {
-      width: 32px;
-      height: 32px;
+      width: 38px;
+      height: 38px;
       display: inline-block;
       vertical-align: middle;
       transition: transform 0.3s ease;
@@ -1562,13 +1562,20 @@
         </ul>
         <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">
           <!-- Moon Icon (Dark Mode active) -->
-          <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" style="fill: currentColor;">
-            <path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10C2.2 6.8 6.5 2.5 11.7 2.2c.4 0 .7.2.9.5.2.3.2.7-.1.9-1.9 1.7-2.9 4-2.9 6.4 0 4.7 3.8 8.5 8.5 8.5 2.4 0 4.7-1 6.4-2.9.3-.3.7-.3.9-.1.3.2.5.6.5.9-.3 5.2-4.6 9.5-9.6 9.5z"/>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
           <!-- Sun Icon (Light Mode active) -->
-          <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" style="display: none; fill: currentColor;">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
             <circle cx="12" cy="12" r="5"/>
-            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
           </svg>
         </button>
       </div>
