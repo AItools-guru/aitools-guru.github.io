@@ -1818,14 +1818,23 @@
           <div class="bi-chart-panel active" id="bi-chart-funnel">
             <p class="chart-desc">Opportunity Stage Conversion Funnel (33% waiting leakage wait-times at Proposal stage)</p>
             <svg width="100%" height="180" viewBox="0 0 300 150">
-              <polygon points="10,10 290,10 250,50 50,50" fill="rgba(88, 166, 255, 0.25)" stroke="var(--primary)" stroke-width="1.5" />
-              <text x="150" y="30" font-family="Fira Code" font-size="10" fill="#fff" text-anchor="middle">Prospecting (100%) - $856M</text>
+              <!-- Level 1: Prospecting -->
+              <polygon points="20,10 140,10 120,50 40,50" fill="rgba(88, 166, 255, 0.25)" stroke="var(--primary)" stroke-width="1.5" />
+              <line x1="80" y1="30" x2="160" y2="30" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1" stroke-dasharray="2,2" />
+              <circle cx="80" cy="30" r="2.5" fill="var(--primary)" />
+              <text x="165" y="33" font-family="Fira Code" font-size="8.5" fill="#fff">Prospecting: 100% ($856M)</text>
               
-              <polygon points="50,55 250,55 200,95 100,95" fill="rgba(245, 158, 11, 0.2)" stroke="var(--gold)" stroke-width="1.5" />
-              <text x="150" y="75" font-family="Fira Code" font-size="10" fill="#fff" text-anchor="middle">Proposal Stage (45%) - $385M</text>
+              <!-- Level 2: Proposal -->
+              <polygon points="40,55 120,55 105,95 55,95" fill="rgba(245, 158, 11, 0.2)" stroke="var(--gold)" stroke-width="1.5" />
+              <line x1="80" y1="75" x2="160" y2="75" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1" stroke-dasharray="2,2" />
+              <circle cx="80" cy="75" r="2.5" fill="var(--gold)" />
+              <text x="165" y="78" font-family="Fira Code" font-size="8.5" fill="#fff">Proposal: 45% ($385M)</text>
               
-              <polygon points="100,100 200,100 160,140 140,140" fill="rgba(16, 185, 129, 0.2)" stroke="var(--success)" stroke-width="1.5" />
-              <text x="150" y="120" font-family="Fira Code" font-size="10" fill="#fff" text-anchor="middle">Closed Won (12%) - $102M</text>
+              <!-- Level 3: Closed Won -->
+              <polygon points="55,100 105,100 90,140 70,140" fill="rgba(16, 185, 129, 0.2)" stroke="var(--success)" stroke-width="1.5" />
+              <line x1="80" y1="120" x2="160" y2="120" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1" stroke-dasharray="2,2" />
+              <circle cx="80" cy="120" r="2.5" fill="var(--success)" />
+              <text x="165" y="123" font-family="Fira Code" font-size="8.5" fill="#fff">Closed Won: 12% ($102M)</text>
             </svg>
           </div>
           
